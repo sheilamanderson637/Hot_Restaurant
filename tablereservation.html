@@ -41,7 +41,7 @@
 			<input type="text" class="form-control" id="" placeholder="Input field">
 		</div>
 		<div class="form-group">
-			<label for="">Uniquie ID</label>
+			<label for="">Unique ID</label>
 			<input type="text" class="form-control" id="" placeholder="Input field">
 		</div>
 	</form>
@@ -50,5 +50,25 @@
 	
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
+
+	<script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newReservation = {
+        name: $("#name").val().trim(),
+        role: $("#phoneNumber").val().trim(),
+        age: $("#email").val().trim(),
+        forcePoints: $("#uniqueId").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/new", newCharacter)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding character...");
+      });
+    });
+  </script>
 </body>
 </html>
