@@ -18,7 +18,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Reservation Data
 //===============================================================
 
-var reservations = [{
+var reservationList = [{
   customerName: "Yoda",
   phoneNumber: "847-222-2222",
   customerEmail: "Yoda@gmail.com",
@@ -46,6 +46,26 @@ app.get("/tables", function(req, res) {
 
 app.get("/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "tablereservation.html"));
+});
+
+// Get all reservations for api
+app.get("/api/reservationList", function(req, res) {
+  res.json(reservationList);
+});
+
+// Create New Reservations - takes in JSON input
+app.post("/api/new", function(req, res) {
+  var newReservation = req.body;
+ 
+ console.log(newReservation);
+
+  reservationList.push(newReservation);
+
+  res.json(newReservation);
+
+ console.log(newReservation);
+ console.log("after json", res);
+
 });
 
 // Starts the server to begin listening
