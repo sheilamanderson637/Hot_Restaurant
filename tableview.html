@@ -5,7 +5,7 @@
     <title>Document</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" cssorigin="anonymous"></script>
 </head>
 <body>
@@ -19,5 +19,27 @@
             </p>
         </div>
     </div>
+
+    <div id="display"></div>
+
+    <script type='text/javascript'>
+        $.get("/api/reservationList", function(data) {
+            console.log(data);
+            if (data) {
+                $('#display').text(data);
+            // $("#stats").show();
+            // $("#name").text(data.name);
+            // $("#role").text(data.role);
+            // $("#age").text(data.age);
+            // $("#force-points").text(data.forcePoints);
+            }
+            else {
+                $('#display').text('Did not receive reservation');
+            // $("#name").text("The force is not strong with this one. Your character was not found.");
+            // $("#stats").hide();
+            }
+        });
+        
+    </script>
 </body>
 </html>
