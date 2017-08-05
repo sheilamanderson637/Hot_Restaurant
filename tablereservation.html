@@ -48,7 +48,7 @@
 
 		
 	
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
 	</form>
 
 	<script type="text/javascript">
@@ -57,16 +57,16 @@
       event.preventDefault();
       var newReservation = {
         name: $("#name").val().trim(),
-        role: $("#phoneNumber").val().trim(),
-        age: $("#email").val().trim(),
-        forcePoints: $("#uniqueId").val().trim()
+        phoneNumber: $("#phoneNumber").val().trim(),
+        email: $("#email").val().trim(),
+        uniqueId: $("#uniqueId").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/new", newCharacter)
+      $.post("/api/new", newReservation)
       .done(function(data) {
         console.log(data);
-        alert("Adding character...");
+        alert("New Reservation has been added");
       });
     });
   </script>
