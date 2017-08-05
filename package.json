@@ -1,0 +1,24 @@
+{
+  "name": "Hot_Restaurant",
+  "version": "1.0.0",
+  "description": "8.5 Class activity to build a resta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheilamanderson637/Hot_Restaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheilamanderson637/Hot_Restaurant/issues"
+  },
+  "homepage": "https://github.com/sheilamanderson637/Hot_Restaurant#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}
