@@ -56,15 +56,12 @@ app.get("/api/reservationList", function(req, res) {
 // Create New Reservations - takes in JSON input
 app.post("/api/new", function(req, res) {
   var newReservation = req.body;
- 
+
  console.log(newReservation);
 
   reservationList.push(newReservation);
 
   res.json(newReservation);
-
- console.log(newReservation);
- console.log("after json", res);
 
 });
 
@@ -73,4 +70,3 @@ app.post("/api/new", function(req, res) {
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-
