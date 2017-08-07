@@ -19,15 +19,15 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 //===============================================================
 
 var reservationList = [{
-  customerName: "Yoda",
+  name: "Yoda",
   phoneNumber: "847-222-2222",
-  customerEmail: "Yoda@gmail.com",
-  customerID: "123"
+  email: "Yoda@gmail.com",
+  uniqueId: "123"
 }, {
-  customerName: "Bex",
+  name: "Bex",
   phoneNumber: "847-222-2222",
-  customerEmail: "Yoda@gmail.com",
-  customerID: "100"
+  email: "Yoda@gmail.com",
+  uniqueId: "100"
 }
 ];
 
@@ -54,10 +54,10 @@ app.get("/api/reservationList", function(req, res) {
 });
 
 // Create New Reservations - takes in JSON input
-app.post("/api/new", function(req, res) {
+app.post("/api/reservationList", function(req, res) {
   var newReservation = req.body;
 
- console.log(newReservation);
+  console.log(newReservation);
 
   reservationList.push(newReservation);
 

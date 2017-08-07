@@ -11,35 +11,42 @@
 <body>
     <div class="jumbotron">
         <div class="container">
-            <h1>Table View!</h1>
-            <p>Contents ...</p>
+            <h1>Current Reservations!</h1>
             <p>
-                <a class="btn btn-primary btn-lg">Learn more</a>
-                <a class="btn btn-primary btn-lg">Learn more</a>
+              <a href="/" class="btn btn-primary btn-lg">
+    	                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    	                </a>
+              <a class="btn btn-primary btn-lg" href="/reservations">Make a reservation</a>
             </p>
         </div>
     </div>
+    <div class="container">
+      <h3>Reservations</h3>
+      <div id="reservationContainer">
+        <!-- reservations go here -->
+      </div>
+      <h3>Waitlist</h3>
+      <div id="waitlistContainer">
+        <!-- reservations go here -->
+      </div>
+    </div>
 
-    <div id="display"></div>
-
-    <script type='text/javascript'>
-        $.get("/api/reservationList", function(data) {
-            console.log(data);
-            if (data) {
-                $('#display').text(data);
-            // $("#stats").show();
-            // $("#name").text(data.name);
-            // $("#role").text(data.role);
-            // $("#age").text(data.age);
-            // $("#force-points").text(data.forcePoints);
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.get("/api/reservationList", function(reservations) {
+          console.log(reservations);
+          var placement;
+          for(r in reservations){
+            console.log(reservations[r])
+            if(r<5){
+              placement = $("#reservationContainer");
+            } else{
+              placement = $("#waitlistContainer");
             }
-            else {
-                $('#display').text('Did not receive reservation');
-            // $("#name").text("The force is not strong with this one. Your character was not found.");
-            // $("#stats").hide();
-            }
+            placement.append($("<p>").text(reservations[r].uniqueId));
+          }
         });
-        
+      })
     </script>
 </body>
 </html>

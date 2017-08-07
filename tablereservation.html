@@ -10,46 +10,43 @@
 </head>
 <body>
 	<div class="container">
-	<div class="jumbotron text-center">
-		<div class="container">
-			<h1>Hot Restaurant</h1>
-			<p>Make your reservation</p>
-			<p>
-				<a class="btn btn-primary btn-lg">View Tables</a>
-				<a class="btn btn-primary btn-lg">
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                </a>
-			</p>
+		<div class="jumbotron text-center">
+			<div class="container">
+				<h1>Hot Restaurant</h1>
+				<p>Make your reservation</p>
+				<p>
+					<a href="/tables" class="btn btn-primary btn-lg">View Tables</a>
+					<a href="/" class="btn btn-primary btn-lg">
+	                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+	                </a>
+				</p>
+			</div>
 		</div>
 	</div>
+
+  <div class="container">
+		<form action="" method="POST" role="form">
+			<legend>Table Reservations</legend>
+
+			<div class="form-group" id="">
+				<label for="">Name</label>
+				<input type="text" class="form-control" id="name" placeholder="Input field">
+			</div>
+			<div class="form-group" id="">
+				<label for="">Phone Number</label>
+				<input type="text" class="form-control" id="phoneNumber" placeholder="Input field">
+			</div>
+			<div class="form-group" id="">
+				<label for="">Email</label>
+				<input type="text" class="form-control" id="email" placeholder="Input field">
+			</div>
+			<div class="form-group" id="">
+				<label for="">Unique ID</label>
+				<input type="text" class="form-control" id="uniqueId" placeholder="Input field">
+			</div>
+		</form>
 	</div>
-
-    <div class="container">
-	<form action="" method="POST" role="form">
-		<legend>Table Reservations</legend>
-
-		<div class="form-group" id="">
-			<label for="">Name</label>
-			<input type="text" class="form-control" id="name" placeholder="Input field">
-		</div>
-		<div class="form-group" id="">
-			<label for="">Phone Number</label>
-			<input type="text" class="form-control" id="phoneNumber" placeholder="Input field">
-		</div>
-		<div class="form-group" id="">
-			<label for="">Email</label>
-			<input type="text" class="form-control" id="email" placeholder="Input field">
-		</div>
-		<div class="form-group" id="">
-			<label for="">Unique ID</label>
-			<input type="text" class="form-control" id="uniqueId" placeholder="Input field">
-		</div>
-	</form>
-
-
-
-		<button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
-	</form>
+	<button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
 
 	<script type="text/javascript">
     // Question: What does this code do?
@@ -63,8 +60,9 @@
       };
 
       // Question: What does this code do??
-      $.post("/api/new", newReservation)
+      $.post("/api/reservationList", newReservation)
       .done(function(data) {
+				//data is the response from the post in the server (res.json(newReservation)) as evidence that the reservation was successful
         console.log(data);
         alert("New Reservation has been added");
       });
